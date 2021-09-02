@@ -1,21 +1,121 @@
 <section class="bg-dark pt-5 pb-5">
     <div class="container">
-        <form action="/sendTx" method="POST">
-            <div>
-                <p class="text-danger"><span class="text-primary"> Wallet:</span>rgerg </p>
-                <p class="text-danger"><span class="text-primary">Balance: {{ data.result }}</span> zegzeg </p>
-            </div>
-            <div>
-                <h2 class="text-center">Send TX</h2>
+        <div>
+            <p class="text-danger fw-bold"><span class="text-primary">Blocks: </span>{{data3.result.blocks}}</p>
+            <p class="text-danger fw-bold"><span class="text-primary">Balance: </span>{{ data1.result }} </p>
+        </div>
+        <div class="">
+            <form action="/sendTx" method="POST">
+                <h2 class="text-center fw-bold">Send TX</h2>
                 <div>
-                    <label for="sendTo">Destinataire: </label>
-                    <input id="sendTo" type="text" class="w-100">
+                    <label class="pb-2 fw-bold" for="sendTo">Send To: </label>
+                    <input id="sendTo" name="to" type="text" class="w-100 form-control" required>
                 </div>
-                <div class="pt-4 d-flex justify-content-end">
-                    <button type="submit">Envoyer</button>
+                <div class="pt-2">
+                    <label class="pb-2 fw-bold" for="sendcb">Amount: </label>
+                    <input id="sendcb" name="cb" type="number" class="w-25 form-control" required>
                 </div>
+                <form action="/sendTX" method="POST">
+                    <div class="pt-4 pb-4 border-bottom d-flex justify-content-end">
+                        <button class="btn btn-primary" type="submit">Send TX</button>
+                    </div>
+                </form>
+
+        </div>
+        <div class="pt-4 border-bottom">
+            <h3 class=" pb-5 text-center text-white">Latest Tx's <img class="rounded-pill" src="/assets/images/tx.jpg"
+                    height="70px" width="80px" alt=""></h3>
+            <div class="pb-3 text-center">
+
+                <form action="/getNewAddress" method="POST">
+                    <button type="submit" class="btn btn-primary">generate new adress</button>
+                </form>
+
             </div>
-        </form>
+
+
+            <ul class="pb-4">
+                {{#each data2.result}}
+                <li class="fw-bold text-danger border-bottom border-primary">
+                    <h5 class=" text-primary">{{this.address}}</h5>{{this.category}}, {{this.amount}}
+                </li>
+                {{/each}}
+            </ul>
+
+
+
+        </div>
+        <div class="pt-4">
+            <h3 class=" pb-5 text-center  text-white">Peer info <img class="rounded-pill" src="/assets/images/peer.jpg"
+                    height="70px" width="80px" alt=""></h3>
+            <div class="pb-3">
+                <ul class="pb-4">
+                    {{#each data4.result}}
+                    <li class="fw-bold text-danger border-bottom border-primary">
+                        <h5 class=" text-primary">{{this.addr}}</h5>{{this.synced_blocks}} blocks synced
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="pt-4">
+            <h3 class=" pb-5 text-center  text-white">Mining info <img class="rounded-pill"
+                    src="/assets/images/mining.jpg" height="70px" width="80px" alt=""></h3>
+            <div class="pb-3">
+
+                <ul class="pb-4">
+
+                    <li class="fw-bold text-danger border-bottom border-primary">
+                        <h5 class=" text-primary">Difficulty: <span
+                                class="text-danger">{{data5.result.difficulty}}</span> </h5>
+                    </li>
+                    <li class="fw-bold text-danger border-bottom border-primary">
+                        <h5 class=" text-primary">Testnet: <span class="text-danger">{{data5.result.testnet}}</span>
+                        </h5>
+                    </li>
+                    <li class="fw-bold text-danger border-bottom border-primary">
+                        <h5 class=" text-primary">Blocks: <span class="text-danger">{{data5.result.blocks}}</span> </h5>
+                    </li>
+                    <li class="fw-bold text-danger border-bottom border-primary">
+                        <h5 class=" text-primary">CPU cores: <span
+                                class="text-danger">{{data5.result.numthreads}}</span> </h5>
+                    </li>
+                    <li class="fw-bold text-danger border-bottom border-primary">
+                        <h5 class=" text-primary">Mining: <span class="text-danger">{{data5.result.generate}}</span>
+                        </h5>
+                    </li>
+
+                </ul>
+                <div class="row">
+                    <div class="col">
+                        <form action="/startMining" method="POST">
+                            <div class="text-center">
+                                <button class="btn btn-primary">Start Mining</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form action="/stopMining" method="POST">
+                            <div class="text-center">
+                                <button class="btn btn-primary">Stop Mining</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
     </div>
 
 </section>
