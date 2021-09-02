@@ -1,0 +1,21 @@
+<section class="bg-dark pt-5 pb-5">
+    <div class="container">
+        <form action="/sendTx" method="POST">
+            <div>
+                <p class="text-danger"><span class="text-primary"> Wallet:</span>rgerg </p>
+                <p class="text-danger"><span class="text-primary">Balance: {{ data.result }}</span> zegzeg </p>
+            </div>
+            <div>
+                <h2 class="text-center">Send TX</h2>
+                <div>
+                    <label for="sendTo">Destinataire: </label>
+                    <input id="sendTo" type="text" class="w-100">
+                </div>
+                <div class="pt-4 d-flex justify-content-end">
+                    <button type="submit">Envoyer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</section>
