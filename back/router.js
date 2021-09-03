@@ -20,7 +20,8 @@ router.route('/startMining')
 router.route('/stopMining')
     .post(homeController.stopMining)
 
-
+router.route('/connect')
+    .post(homeController.connect)
 
 
 

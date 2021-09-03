@@ -1,8 +1,42 @@
 <section class="bg-dark pt-5 pb-5">
     <div class="container">
+        <!-- Modal -->
+        <div class="pb-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                Select BLK
+            </button>
+        </div>
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Choose Blockchain</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/connect" method="POST">
+                            <select name="chooseChain" class="form-select" id="chooseChain">
+                                <option name="chain" value="BGDTC">BGDTC</option>
+                                <option name="chain" value="TAURUX">TAURUX</option>
+                                <option name="chain" value="ARINFO">ARINFO</option>
+                            </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        <button type="submit" class="btn btn-primary">Connect</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <div>
+            <p class="text-danger fw-bold"><span class="text-primary">Blockchain: </span>{{data3.result.name}}</p>
             <p class="text-danger fw-bold"><span class="text-primary">Blocks: </span>{{data3.result.blocks}}</p>
-            <p class="text-danger fw-bold"><span class="text-primary">Balance: </span>{{ data1.result }} </p>
+            <p class="text-danger fw-bold"><span class="text-primary">Balance: </span>{{ data1.result }} <span
+                    class="text-white">{{data3.result.name}} Coin's </span> </p>
         </div>
         <div class="">
             <form action="/sendTx" method="POST">
@@ -119,3 +153,7 @@
     </div>
 
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
