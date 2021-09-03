@@ -10,13 +10,15 @@
  
  ### pre-requisites : komodod, komodo-cli : https://github.com/KomodoPlatform/komodo 
 -------------------------------------------------------------------------------------
- #### git clone https://github.com/bgdtc/node-hbs-kmd-blk.git
+ git clone https://github.com/bgdtc/node-hbs-kmd-blk.git
  -------------------------------------------------------------------------------------
- #### cd node-hbs-kmd-blk
+ cd node-hbs-kmd-blk
  -------------------------------------------------------------------------------------
- #### npm i
+ npm i
  -------------------------------------------------------------------------------------
- #### nodemon server.js
+ setup komodo rpc
+ configure .env with your credentials 
+ nodemon server.js
  -------------------------------------------------------------------------------------
- #### Open http://localhost:8888 
+ Open http://localhost:8888 
  -------------------------------------------------------------------------------------
